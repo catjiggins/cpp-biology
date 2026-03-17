@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
-#include <cassert>
+ 
 
+std::string cDNA(const std::string& dna);
 int main()
 {
     std::string dna;
@@ -10,17 +12,16 @@ int main()
 
     std::cout << "Enter DNA sequence: ";
     std::cin >> dna;
-    for(char base : dna)
-    {
-        if(base == 'A') complement += 'T';
-        else if(base == 'T') complement += 'A';
-        else if(base == 'G') complement += 'C';
-        else if(base == 'C') complement += 'G';
-    }
+    
+    std::string result = validna(dna);
+        std::cout << "Invalid nucleotide found: " << base << std::endl;
+            return 1; 
+    
 
+    std::string result = cDNA(dna);
     std::cout << "Complement strand: "
               << complement << std::endl;
 
     return 0;
-  
+    
 }
