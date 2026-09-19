@@ -1,27 +1,30 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
- 
+#include "dna.h"
 
-std::string cDNA(const std::string& dna);
 int main()
 {
     std::string dna;
-    std::string complement = "";
 
-    std::cout << "Enter DNA sequence: ";
+    std::cout << "Enter DNA or RNA sequence: ";
     std::cin >> dna;
-    
-    std::string result = validna(dna);
-        std::cout << "Invalid nucleotide found: " << base << std::endl;
-            return 1; 
-    
 
-    std::string result = cDNA(dna);
-    std::cout << "Complement strand: "
-              << complement << std::endl;
+    if(validna(dna))
+    {
+        std::string resultDNA = cDNA(dna);
+
+        std::cout << "Complement DNA strand: "
+                  << resultDNA << std::endl;
+   
+        std::string resultRNA = cRNA(dna);
+
+        std::cout << "Complement RNA strand: "
+                  << resultRNA  << std::endl;
+    }
+    else
+    {
+        std::cout << "Invalid nucleotide found in the DNA sequence."
+                  << std::endl;
+    }
 
     return 0;
-    
 }
