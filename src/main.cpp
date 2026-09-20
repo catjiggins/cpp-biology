@@ -5,10 +5,10 @@ int main()
 {
     std::string dna;
 
-    std::cout << "Enter DNA or RNA sequence: ";
+    std::cout << "Enter DNA sequence: ";
     std::cin >> dna;
 
-    if(validna(dna))
+    if(validDNA(dna))
     {
         std::string resultDNA = cDNA(dna);
 
@@ -19,6 +19,10 @@ int main()
 
         std::cout << "Complement RNA strand: "
                   << resultRNA  << std::endl;
+
+        std::string aminoAcid = aminoDNA(resultRNA);
+        std::cout << "Amino Acid sequence: "
+                  << aminoAcid << std::endl;
     }
     else
     {

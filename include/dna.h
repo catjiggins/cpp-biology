@@ -4,6 +4,7 @@
 
 std::string cDNA(const std::string& dna);
 std::string cRNA(const std::string& dna);
-bool validna(const std::string& dna);
+bool validDNA(const std::string& dna);
+std::string aminoDNA(const std::string& complementRNA);
 
 #endif

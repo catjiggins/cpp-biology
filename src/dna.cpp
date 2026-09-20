@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <map>
 #include "dna.h"
 
 
@@ -37,7 +38,7 @@ std::string cRNA(const std::string& dna)
 }
 
 
-bool validna(const std::string& dna)
+bool validDNA(const std::string& dna)
 {
     std::vector<char> validdna = { 'A', 'T', 'G', 'C' };
     std::vector<char> validrna = { 'A', 'U', 'G', 'C' };
@@ -54,3 +55,28 @@ bool validna(const std::string& dna)
     }    
     return true;
 }
+
+
+
+
+std::map < std::string, std::string> codonTABLE = 
+{
+    {"AUG", "Met"},
+    };
+
+std::string aminoDNA(const std::string& complementRNA)
+{
+    std::string aminoAcid;
+    for ( int i = 0; i < complementRNA .size(); i += 3)
+    {  
+        std::string codon = complementRNA.substr(i, 3);
+        auto it = codonTABLE.find(codon);
+        if(it != codonTABLE.end())
+        {
+            aminoAcid += it->second + " ";
+        }
+    }
+    return aminoAcid;
+}
+
+
