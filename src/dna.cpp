@@ -32,7 +32,7 @@ std::string cRNA(const std::string& dna)
         else if(base == 'T') complementRNA += 'A';
         else if(base == 'G') complementRNA += 'C';
         else if(base == 'C') complementRNA += 'G';  
-    }
+    }   
     return complementRNA ;
 }
 
