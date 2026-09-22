@@ -1,5 +1,6 @@
 #include <iostream>
 #include "dna.h"
+#include <cctype>
 
 int main()
 {
@@ -8,6 +9,10 @@ int main()
     std::cout << "Enter DNA sequence: ";
     std::cin >> dna;
 
+    for (char& base : dna)
+{
+    base = std::toupper(base);
+}
     if(validDNA(dna))
     {
         std::string resultDNA = cDNA(dna);
