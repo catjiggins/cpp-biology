@@ -62,8 +62,8 @@ bool validDNA(const std::string& dna)
 
 
 std::map < std::string, std::string> codonTABLE = 
-{
-    {"AUG", "Met"},
+{   
+    {"AUG", "Met/Start"},
     {"UUU", "Phe"},
     {"UUC", "Phe"},
     {"UUA", "Leu"},
@@ -129,6 +129,25 @@ std::map < std::string, std::string> codonTABLE =
     {"UGA", "Stop"} 
     };
 
+
+    std::string startCODON(const std::string& complementRNA)
+{
+    std::string startCODON;
+    for ( int i = 0; i < complementRNA .size(); i += 3)
+    {  
+        std::string codon = complementRNA.substr(i, 3);
+        auto it = codonTABLE.find(codon);
+        if(it != codonTABLE.end())
+        {if(codon == "AUG")
+            {
+                startCODON +=  std::to_string(i) + " ";
+            }
+        }
+    }
+    return startCODON;
+}           
+            
+    
 std::string aminoDNA(const std::string& complementRNA)
 {
     std::string aminoAcid;
@@ -144,4 +163,6 @@ std::string aminoDNA(const std::string& complementRNA)
     return aminoAcid;
 }
 
+
+    
 

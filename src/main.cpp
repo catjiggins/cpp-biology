@@ -28,6 +28,9 @@ int main()
         std::string aminoAcid = aminoDNA(resultRNA);
         std::cout << "Amino Acid sequence: "
                   << aminoAcid << std::endl;
+        std::string startCodonPositions = startCODON(resultRNA);
+        std::cout << "Start codon positions: "
+                  << startCodonPositions << std::endl;
     }
     else
     {
